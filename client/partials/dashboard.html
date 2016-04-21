@@ -2,7 +2,7 @@
 	<div>
 		<h1> Welcome, {{user}}</h1>
 		<input type = 'text' ng-model='filter' placeholder = 'search...'>
-		<table>
+		<table class='table'>
 			<tr>
 				<th>Category</th>
 				<th>Topic</th>
@@ -19,18 +19,23 @@
 	</div>
 	<div>
 		<h3> Add a new Topic </h3>
-		<form>
-			Topic: <input type = 'text' ng-model = 'newTopic.topic'><br>
-			Description: <input type = 'textarea' ng-model = 'newTopic.description'><br>
-			Category: <select ng-model = 'newTopic.category'>
-				<option value = 'HTML'> HTML </option>
-				<option value = 'Ruby'> Ruby</option>
-				<option value = 'Javascript'> Javascript </option>
-				<option value = 'UX'> UX </option>
-				<option value = 'Python'> Python </option>
-			</select>
-			<input type = 'hidden' ng-init = 'newTopic.user = user'>
-			<input type = 'submit' value ='submit' ng-click='addTopic()'>
+		<form class='form-inline'>
+				Topic: <input type = 'text' ng-model = 'newTopic.topic'>
+				Description: <input type='text'style='width:300px; height:125px;' ng-model = 'newTopic.description'><br>
+
+			<div class='form-group'>
+				Category: <select ng-model = 'newTopic.category'>
+					<option value = 'HTML'> HTML </option>
+					<option value = 'Ruby'> Ruby</option>
+					<option value = 'Javascript'> Javascript </option>
+					<option value = 'UX'> UX </option>
+					<option value = 'Python'> Python </option>
+				</select>
+				<input type = 'hidden' ng-init = 'newTopic.user = user'>
+			</div>
+			<div class='form-group'>
+				<input class='btn btn-primary' type = 'submit' value ='submit' ng-click='addTopic()'>
+			</div>
 		</form>
 </div>
 

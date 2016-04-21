@@ -14,3 +14,4 @@ app.set('/', function (req, res){
 app.listen(app.get('port'), function(){
  console.log("listening on port ", app.get('port'));
 });
+//https://d-board.herokuapp.com/ | https://git.heroku.com/d-board.git
