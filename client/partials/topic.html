@@ -11,15 +11,14 @@
 			<input class='btn btn-primary' type = 'submit' ng-click='addPost()'>
 		</form>
 	</div>
-	<div ng-repeat = 'post in posts'>
-		<a href='#/user/{{user._id}}'> {{post.user}} </a> <p>{{post.description}}</p>
-		<div ng-repeat='comment in comments'>
-			<p> <a href='#/user/{{user._id}}'>{{comment.user}}PLACHOLDER </a>{{comment.comment}}</p>
+	<div style='margin-left:10px;' ng-repeat = 'post in posts'>
+		<a href='#/user/{{user._id}}'> {{post.user}} </a> <p>{{post.description}} &nbsp<button class='btn btn-success' ng-click='upVote()'>{{post.upvote}}</button><button class='btn btn-danger' ng-click='downVote()'>{{post.downvote}}</button></p>
+		<div style='margin-left:30px;' ng-repeat='comment in post.comments'>
+			<a href='#/user/{{user._id}}'>{{comment.user}}</a><p>{{comment.description}}</p>
 		</div>
 		<form>
-			<input type = 'text' ng-model = 'newComment.description'>
-			<input type = 'hidden' ng-init = 'newComment.user = user'>
-			<input class='btn btn-primary' type = 'submit' ng-click='addComment()'>
+			<input type = 'text' ng-model = 'description'>
+			<input class='btn btn-primary' type = 'submit' ng-click='addComment(description, post._id)'>
 		</form>
 	</div>
 </div>

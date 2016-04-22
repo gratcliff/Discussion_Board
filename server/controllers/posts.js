@@ -15,26 +15,26 @@ module.exports = (function (){
 			})
 		},
 		create: function (req, res){
-			console.log(req.body._topic)
-			var post = new Post(req.body);
-			post.save(function (err){
-				console.log(req.body.description)
-				if (err){
-					console.log(err);
-				}
-				else{
-					Topic.findOneAndUpdate({_id: req.body._topic}, {$push: {'posts': req.body.id}}, function (err, results){
-					if(err){
+			if (!req.body.description){
+				res.json('You must enter something into the message field.')
+			}
+			else{
+				var post = new Post(req.body);
+				post.save(function (err){
+					if (err){
 						console.log(err);
 					}
 					else{
-						console.log(results);
+						Topic.findOneAndUpdate({_id: req.body._topic}, {$push: {'posts': req.body.id}}, function (err, results){
+						if(err){
+							console.log(err);
+						}
+						
+				})
+						res.json(post);
 					}
-					
-			})
-					res.json(post);
-				}
-			})
+				})
+			}
 		}
 	}
 })();

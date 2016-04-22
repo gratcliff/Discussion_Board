@@ -5,7 +5,6 @@ module.exports = (function (){
 	return {
 		index: function (req, res){
 			Topic.find({}, function (err, results){
-				console.log(results);
 				if (err){
 					console.log(err);
 				}
@@ -20,7 +19,6 @@ module.exports = (function (){
 					console.log(err);
 				}
 				else{
-					console.log(results);
 					res.json (results);
 				}
 			})

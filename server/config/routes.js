@@ -24,10 +24,10 @@ module.exports = function (app){
 	app.post('/posts', function (req, res){
 		posts.create (req, res);
 	})
-	app.get('/comments', function (req, res){
+	app.get('/comments/:id', function (req, res){
 		comments.index (req, res);
 	})
-	app.post('/comments/:id', function (req, res){
+	app.post('/comments', function (req, res){
 		comments.create (req, res);
 	})
 }
